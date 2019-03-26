@@ -44,12 +44,10 @@ class User extends Authenticatable
         return $this->hasOne('App\Permission', 'owner');
     }
 
-    public function can($ability, $arguments = []) {
+    public function can($ability, $arguments = '') {
         $permissions = ($this->permission()->get()[0]);
         $pers_list = ($this->makeArray($permissions, $ability));
-
-
-        return strpos($pers_list,$arguments)>=0;
+        return strpos($pers_list,$arguments) !== false;
     }
 
     private function makeArray($permissions, $abl){
@@ -60,7 +58,6 @@ class User extends Authenticatable
             $value = explode(':', $value);
             $res[$value[0]] = $value[1];
         }
-
         return $res[$abl];
     }
 }
