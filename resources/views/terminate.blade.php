@@ -5,7 +5,7 @@
         <div class="card">
             <form id="postform" action="{{ route('terminate') }}" class="" method="post">
                 {{ csrf_field() }}
-                <example-component></example-component>
+                <termination-form></termination-form>
             </form>
         </div>
     </div>
