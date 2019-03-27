@@ -32,8 +32,7 @@ class TerminationController extends Controller
         $filename = $request->input('contract_date'). ' - ' . $request->input('police') .'.docx';
         $res->saveAs(storage_path().'/app/tmp/'.$filename);
         $file_path = storage_path().'/app/tmp/' . $filename;
-        if (file_exists($file_path))
-        {
+        if (file_exists($file_path)) {
             return Response()->download($file_path, $filename, [
                 'Content-Length: '. filesize($file_path)
             ])->deleteFileAfterSend();
