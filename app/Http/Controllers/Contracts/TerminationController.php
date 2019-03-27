@@ -20,7 +20,7 @@ class TerminationController extends Controller
     public function terminate(Request $request){
         $data = $request->input();
 
-        require_once base_path().'\vendor\phpoffice\phpword\bootstrap.php';
+        require_once base_path().DS.'vendorp'.DS.'hpoffice'.DS.'phpword'.DS.'bootstrap.php';
         $templateFile = storage_path().'/app/tmp/tmp_termination_contract'. $data['tmpl'] .'.docx';
         if($data['calc_type'] == 0){
             $data['calc_type'] = '2.1.    Страховщик обязуется незаработанную страховую премию в вышеуказанном размере, зачесть в счет будущих договоров страхования заключенных со Страхователем.';

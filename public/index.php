@@ -8,7 +8,7 @@
  */
 
 define('LARAVEL_START', microtime(true));
-
+const DS = DIRECTORY_SEPARATOR;
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
