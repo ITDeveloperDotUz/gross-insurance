@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-
-
 Route::group([
     'middleware' => 'auth',
     'prefix' => 'contract',
@@ -35,7 +31,14 @@ Route::group([
     Route::post('/new', 'ContractController@saveCreated');
 });
 
+Route::group([
+        'middleware' => 'auth',
+        'prefix' => 'admin',
+        'namespace' => 'Admin'
+    ], function(){
 
+    Route::get('/', 'DashboardController@show')->name('dashboard');
+});
 
 Auth::routes();
 

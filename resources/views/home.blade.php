@@ -14,7 +14,7 @@
                         </div>
                     @endif
                     Привет <?= __('user.'.Auth::user()->role) .' '. Auth::user()->name ?><br>
-                    Вы можете
+                    Вы можете <a href="{{ route('dashboard') }}">Admin</a>
                 </div>
             </div>
         </div>
