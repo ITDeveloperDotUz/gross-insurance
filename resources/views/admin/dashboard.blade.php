@@ -1,4 +1,5 @@
-@extends('layouts.app)
+@extends('admin.layouts.app')
+
 @section('scripts')
     <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css') }}" >
     <!-- //bootstrap-css -->
@@ -19,7 +20,6 @@
     <script src="{{ asset('admin/js/raphael-min.js') }}"></script>
     <script src="{{ asset('admin/js/morris.js') }}"></script>
 @endsection
-
 @section('content')
     <!--main content start-->
     <section id="main-content">

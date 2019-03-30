@@ -1,10 +1,9 @@
-@section('header')
 <!--header start-->
 <header class="header fixed-top clearfix">
     <!--logo start-->
     <div class="brand">
-        <a href="index.html" class="logo">
-            VISITORS
+        <a href="{{ route('dashboard') }}" class="logo">
+            G<span>ROSS</span>
         </a>
         <div class="sidebar-toggle-box">
             <div class="fa fa-bars"></div>
@@ -196,9 +195,8 @@
                 <input type="text" class="form-control search" placeholder=" Search">
             </li>
             <!-- user login dropdown start-->
-            <li class="dropdown">
+            <li class="dropdown user-area">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <img alt="" src="images/2.png">
                     <span class="username">John Doe</span>
                     <b class="caret"></b>
                 </a>
@@ -215,4 +213,4 @@
     </div>
 </header>
 <!--header end-->
-@endsection
+

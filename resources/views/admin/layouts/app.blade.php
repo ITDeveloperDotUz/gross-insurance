@@ -12,8 +12,8 @@
 </head>
 <body>
 <section id="container">
-    @include('header')
-    @include('sidebarMenu')
+    @include('admin.layouts.header')
+    @include('admin.layouts.sidebarMenu')
     @yield('content')
 </section>
 <script src="{{ asset('admin/js/bootstrap.js') }}"></script>

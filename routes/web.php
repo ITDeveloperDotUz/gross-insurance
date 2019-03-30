@@ -33,7 +33,7 @@ Route::group([
 
 Route::group([
         'middleware' => 'auth',
-        'prefix' => 'admin',
+        'prefix' => 'app',
         'namespace' => 'Admin'
     ], function(){
 
