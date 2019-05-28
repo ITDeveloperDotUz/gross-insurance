@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
+    //return redirect('/app');
     return view('welcome');
 });
 
 Route::group([
-    'middleware' => 'auth',
+    //'middleware' => '',
     'prefix' => 'contract',
     'namespace' => 'Contracts'
     ], function () {
@@ -40,6 +41,6 @@ Route::group([
     Route::get('/', 'DashboardController@show')->name('dashboard');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -798,6 +798,7 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
 .panel {
     border: none ! important;
 }
+
 .agileinfo-grap {
     padding: 2em;
     background:rgb(238, 249, 240);
@@ -2363,7 +2364,8 @@ ul.inbox-pagination li {
 }
 /*-- gallery --*/
 .w3layouts-main h2 {
-	color: #8b5c7e;
+    font-family: 'Times New Roman';
+	color: rgba(27,49,106,1);
     font-size: 29px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -2373,7 +2375,7 @@ ul.inbox-pagination li {
 .w3layouts-main {
     width: 30%;
     margin:5em auto;
-    background:rgba(171, 119, 157, 0.27);
+    background:#fff;
     padding: 42px 35px;
 }
 /*--//header--*/
@@ -2381,16 +2383,16 @@ ul.inbox-pagination li {
 input.ggg{
     width: 100%;
     padding: 15px 0px 15px 15px;
-    border: 1px solid #fff;
+    border: 1px solid rgba(27,49,106,1);
     outline: none;
     font-size: 14px;
-    color: #fff;
+    color: rgba(27,49,106,1);
     margin: 14px 0px;
 	background: none;
 }
 .w3layouts-main span {
     font-size: 16px;
-    color: #fff;
+    color: rgba(27,49,106,1);
     float: left;
     width: 32%;
 	margin-top: 8px;
@@ -2399,13 +2401,13 @@ input.ggg{
     font-size: 16px;
     float: right;
     width: 37%;
-	color: #fff;
+	color: rgba(27,49,106,1);
     letter-spacing: 1px;
 	margin-top: 8px;
 	text-decoration:underline;
 }
 .w3layouts-main a {
-    color: #fff;
+    color: rgba(27,49,106,1);
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-o-transition:0.5s all;
@@ -2413,7 +2415,7 @@ input.ggg{
 	-ms-transition:0.5s all;
 }
 .w3layouts-main a:hover{
-	color:#f0bcb4;
+	color:rgba(27,49,106,.5);
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-o-transition:0.5s all;
@@ -2425,7 +2427,7 @@ input.ggg{
     font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background: #f0bcb4;
+    background: rgba(27,49,106,1);
     color: white;
     border: none;
     outline: none;
@@ -2439,7 +2441,7 @@ input.ggg{
     -ms-transition: 0.5s all;
 }
 .w3layouts-main input[type="submit"]:hover {
-	background:#8b5c7e;
+	background:rgba(27,49,106,.5);
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-o-transition:0.5s all;
@@ -2447,15 +2449,15 @@ input.ggg{
 	-ms-transition:0.5s all;
 }
 .w3layouts-main p a {
-    color: #f0bcb4;
+    color: rgba(27,49,106,1);
     padding: 10px;
 }
 .w3layouts-main p a:hover {
-    color: #fff;
+    color: rgba(27,49,106,.5);
 }
 .w3layouts-main p {
     font-size: 17px;
-    color: #fff;
+    color: rgba(27,49,106,1);
 	text-align: center;
 }
 /*--//login--*/
@@ -2464,22 +2466,22 @@ h4 input[type="checkbox"] {
 }
 .w3layouts-main h4{
     margin-right: 10px;
-	color:#fff;
+	color:rgba(27,49,106,1);
 	font-weight:400;
 	font-size:14px;
 }
  /*--placeholder-color--*/
 ::-webkit-input-placeholder {
-	color:#fff !important;
+	color:rgba(27,49,106,.5) !important;
 }
 :-moz-placeholder { /* Firefox 18- */
-	color:#fff !important; 
+	color:rgba(27,49,106,.5) !important;
 }
 ::-moz-placeholder {  /* Firefox 19+ */
-	color:#fff !important;
+	color:rgba(27,49,106,.5) !important;
 }
 :-ms-input-placeholder {  
-	color:#fff !important;
+	color:rgba(27,49,106,.5) !important;
 }
 /*--//placeholder-color--*/
 .alert {

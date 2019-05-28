@@ -14,87 +14,78 @@
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-book"></i>
-                            <span>UI Elements</span>
+                            <span>Договор</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="typography.html">Typography</a></li>
-                            <li><a href="glyphicon.html">glyphicon</a></li>
-                            <li><a href="grids.html">Grids</a></li>
+                            <li><a href="typography.html">Список договоров</a></li>
+                            <li><a href="glyphicon.html">Полисы</a></li>
+                            <li><a href="grids.html">Поступления</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="fontawesome.html">
                             <i class="fa fa-bullhorn"></i>
-                            <span>Font awesome </span>
+                            <span>Отчет</span>
                         </a>
+                        <ul class="sub">
+                            <li><a href="typography.html">Отчет по полисам</a></li>
+                            <li><a href="glyphicon.html">Отчет по агентам</a></li>
+                        </ul>
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-th"></i>
-                            <span>Data Tables</span>
+                            <span>Агент</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="basic_table.html">Basic Table</a></li>
-                            <li><a href="responsive_table.html">Responsive Table</a></li>
+                            <li><a href="basic_table.html">Назначение коммиссионых</a></li>
+                            <li><a href="responsive_table.html">Реестр агентских соглашений</a></li>
+                            <li><a href="responsive_table.html">Акт выполненных работ</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-tasks"></i>
-                            <span>Form Components</span>
+                            <span>Калькуляторы</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="form_component.html">Form Elements</a></li>
-                            <li><a href="form_validation.html">Form Validation</a></li>
-                            <li><a href="dropzone.html">Dropzone</a></li>
+                            <li><a href="form_component.html">ОСГОП</a></li>
+                            <li><a href="form_validation.html">ОСГОР</a></li>
+                            <li><a href="dropzone.html">ОСГОВТС</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-envelope"></i>
-                            <span>Mail </span>
+                            <span>Вопрос - Ответ</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class=" fa fa-bar-chart-o"></i>
+                            <span>База знаний</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="mail.html">Inbox</a></li>
-                            <li><a href="mail_compose.html">Compose Mail</a></li>
+                            <li><a href="chartjs.html">Электронные книги</a></li>
+                            <li><a href="flot_chart.html">Видеоуроки</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class=" fa fa-bar-chart-o"></i>
-                            <span>Charts</span>
+                            <span>Документы</span>
                         </a>
-                        <ul class="sub">
-                            <li><a href="chartjs.html">Chart js</a></li>
-                            <li><a href="flot_chart.html">Flot Charts</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class=" fa fa-bar-chart-o"></i>
-                            <span>Maps</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a href="google_map.html">Google Map</a></li>
-                            <li><a href="vector_map.html">Vector Map</a></li>
-                        </ul>
+
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-glass"></i>
-                            <span>Extra</span>
+                            <span>Управление</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="404.html">404 Error</a></li>
-                            <li><a href="registration.html">Registration</a></li>
+                            <li><a href="gallery.html">Вид</a></li>
+                            <li><a href="404.html">Профиль</a></li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="login.html">
-                            <i class="fa fa-user"></i>
-                            <span>Login Page</span>
-                        </a>
                     </li>
                 </ul>
             </div>

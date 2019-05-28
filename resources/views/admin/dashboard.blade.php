@@ -1,25 +1,5 @@
 @extends('admin.layouts.app')
 
-@section('scripts')
-    <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css') }}" >
-    <!-- //bootstrap-css -->
-    <!-- Custom CSS -->
-    <link href="{{ asset('admin/css/style.css') }}" rel='stylesheet' type='text/css' />
-    <link href="{{ asset('admin/css/style-responsive.css') }}" rel="stylesheet"/>
-    <!-- font CSS -->
-    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <!-- font-awesome icons -->
-    <link rel="stylesheet" href="{{ asset('admin/css/font.css') }}" type="text/css"/>
-    <link href="{{ asset('admin/css/font-awesome.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('admin/css/morris.css') }}" type="text/css"/>
-    <!-- calendar -->
-    <link rel="stylesheet" href="{{ asset('admin/css/monthly.css') }}">
-    <!-- //calendar -->
-    <!-- //font-awesome icons -->
-    <script src="{{ asset('admin/js/jquery2.0.3.min.js') }}"></script>
-    <script src="{{ asset('admin/js/raphael-min.js') }}"></script>
-    <script src="{{ asset('admin/js/morris.js') }}"></script>
-@endsection
 @section('content')
     <!--main content start-->
     <section id="main-content">
@@ -32,9 +12,9 @@
                             <i class="fa fa-eye"> </i>
                         </div>
                         <div class="col-md-8 market-update-left">
-                            <h4>Visitors</h4>
-                            <h3>13,500</h3>
-                            <p>Other hand, we denounce</p>
+                            <h4>Договора</h4>
+                            <h3>142</h3>
+                            <p>Не завершено 15</p>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
@@ -42,12 +22,12 @@
                 <div class="col-md-3 market-update-gd">
                     <div class="market-update-block clr-block-1">
                         <div class="col-md-4 market-update-right">
-                            <i class="fa fa-users" ></i>
+                            <i class="fa fa-usd" ></i>
                         </div>
                         <div class="col-md-8 market-update-left">
-                            <h4>Users</h4>
-                            <h3>1,250</h3>
-                            <p>Other hand, we denounce</p>
+                            <h4>Поступлении</h4>
+                            <h3>150</h3>
+                            <p>265 000 000 сум</p>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
@@ -58,9 +38,9 @@
                             <i class="fa fa-usd"></i>
                         </div>
                         <div class="col-md-8 market-update-left">
-                            <h4>Sales</h4>
-                            <h3>1,500</h3>
-                            <p>Other hand, we denounce</p>
+                            <h4>Полисы</h4>
+                            <h3>145</h3>
+                            <p>Бракован 7</p>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
@@ -68,11 +48,11 @@
                 <div class="col-md-3 market-update-gd">
                     <div class="market-update-block clr-block-4">
                         <div class="col-md-4 market-update-right">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            <i class="fa fa-users" aria-hidden="true"></i>
                         </div>
                         <div class="col-md-8 market-update-left">
-                            <h4>Orders</h4>
-                            <h3>1,500</h3>
+                            <h4>Клиенты</h4>
+                            <h3>129</h3>
                             <p>Other hand, we denounce</p>
                         </div>
                         <div class="clearfix"> </div>
@@ -81,11 +61,10 @@
                 <div class="clearfix"> </div>
             </div>
             <!-- //market-->
-            <div class="agil-info-calendar">
-                <div class="col-md-6 w3agile-notifications">
-                    <div class="notifications">
+            <div class="neu-grid-parent col-fr-1">
+                <div class="neu-grid-child-1fr">
+                    <div class="agile-last-grid">
                         <!--notification start-->
-
                         <header class="panel-heading">
                             Notification
                         </header>
@@ -150,17 +129,15 @@
                                     </p>
                                 </div>
                             </div>
-
                         </div>
-
                         <!--notification end-->
                     </div>
                 </div>
                 <div class="clearfix"> </div>
             </div>
             <!-- tasks -->
-            <div class="agile-last-grids">
-                <div class="col-md-4 agile-last-left">
+            <div class="neu-grid-parent col-fr-2">
+                <div class="neu-grid-child">
                     <div class="agile-last-grid">
                         <div class="area-grids-heading">
                             <h3>Monthly</h3>
@@ -184,7 +161,7 @@
 
                     </div>
                 </div>
-                <div class="col-md-4 agile-last-left agile-last-middle">
+                <div class="neu-grid-child">
                     <div class="agile-last-grid">
                         <div class="area-grids-heading">
                             <h3>Daily</h3>
@@ -215,7 +192,7 @@
                         </script>
                     </div>
                 </div>
-                <div class="col-md-4 agile-last-left agile-last-right">
+                <div class="neu-grid-child">
                     <div class="agile-last-grid">
                         <div class="area-grids-heading">
                             <h3>Yearly</h3>
@@ -349,7 +326,7 @@
         <!-- footer -->
         <div class="footer">
             <div class="wthree-copyright">
-                <p>© 2017 Visitors. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+                <p>© 2019 NeuwDesign Admin <a href="https://www.newsite.uz">Разработчик - NewSite.uz</a></p>
             </div>
         </div>
         <!-- / footer -->

@@ -1,9 +1,9 @@
 <template>
-    <div id="vue-component" class="form_content">
+    <div class="form_content">
         <div class="card-header"><h2 class=" header">Расторжение</h2></div>
         <div class="card-body">
             <div id="contract" class="row labels form-inline">
-                <div class="col-md-4">Договор страхоZвания №</div>
+                <div class="col-md-4">Договор страхования №</div>
                 <div class="col-md-3">
                     <input @blur="getTmp" required="required" placeholder="1101/21/0001" v-model="contract" name="contract" class="form-control" type="text">
                     <input v-model="tmpl" name="tmpl" type="hidden">
@@ -16,8 +16,6 @@
                 </div>
                 <hr>
             </div>
-
-
             <div id="police" class="row labels">
                 <div class="col-md-4">Полис №</div>
                 <div class="col-md-3">
@@ -33,23 +31,39 @@
                     <input v-model="ins_per_start1" name="ins_period_start" type="hidden">
                     <hr>по
                     <hr>
-                    <input required="required" @blur="insPerDiff" v-model="ins_per_end" class="form-control" type="date">
+                    <input required="required" @blur="insPerCalc" v-model="ins_per_end" class="form-control" type="date">
                     <input v-model="ins_per_end1" name="ins_period_end" type="hidden">
                     <br>
                     <hr><input readonly="readonly" v-model="ins_per_diff" name="ins_per_diff" class="form-control" type="number">&nbsp;&nbsp;дней
                     <hr>
                 </div>
             </div>
+            <div id="appl_date" class="row labels">
+                <div class="col-md-4">Дата заявления</div>
+                <div class="col-md-3">
+                    <input required="required" @blur="insPerCalc()" v-model="appl_date"  class="form-control" type="date">
+                    <input v-model="appl_date1" name="appl_date" type="hidden">
+                </div>
+            </div>
             <div id="term_date" class="row labels">
                 <div class="col-md-4">Дата расторжения</div>
                 <div class="col-md-3">
-                    <input required="required" @blur="insPerCalc()" v-model="term_date"  class="form-control" type="date">
+                    <input required="required"  v-model="term_date"  class="form-control" type="date">
                     <input v-model="term_date1" name="term_date" type="hidden">
                 </div>
             </div>
             <div id="term_cause" class="row labels">
-                <div class="col-md-4">Причина расторжения</div>
-                <div class="col"><input placeholder="В связи с..." required="required" v-model="term_cause" name="term_cause" class="form-control" type="text"></div>
+                <div  class="col-md-4">Причина расторжения</div>
+                <div class="col">
+                    <select name="term_cause" class="form-control" v-model="select_cause">
+                        <option value="досрочным погашением кредита">Досрочная погашение кредита</option>
+                        <option value="выставлением приобретенного имущества в залог">Выставление приобретенного имущества в залог</option>
+                        <option value="переоформлением кредитного договора">Переоформление кредитного договора</option>
+                        <option value="отказом кредитора">Отказ кредитора</option>
+                        <option value="0">Другое...</option>
+                    </select>
+                    <input v-if="select_cause === '0'" placeholder="В связи с..." required="required" name="term_cause" class="form-control" type="text">
+                </div>
             </div>
             <div id="calc_type" class="row labels">
                 <div class="col-md-4">Возврат/Взаиморасчет</div>
@@ -164,7 +178,8 @@
                 ins_per_start: '',
                 ins_per_end: '',
                 ins_per_diff: 0,
-                term_date: '',
+                appl_date: moment().format('YYYY-MM-DD'),
+                //term_date: moment(this.appl_date).add(1, 'd').format('YYYY-MM-DD'),
                 exp_ins_period: 0,
                 rem_ins_period: 0,
 
@@ -187,15 +202,21 @@
                 term_cause: '',
                 calc_type: 0,
 
+                appl_date1: '',
                 ins_per_start1: '',
                 ins_per_end1: '',
                 contract_date1: '',
                 term_date1: '',
                 tmpl: 0,
-                contract_type: ''
+                contract_type: '',
+                select_cause: true
             }
         },
-        computed: {},
+        computed: {
+            term_date: function(){
+                return moment(this.appl_date).add(1, 'd').format('YYYY-MM-DD')
+            }
+        },
         methods: {
             typeDate: function (){
                 moment.locale('ru');
@@ -204,6 +225,7 @@
                 this.contract_date1 = moment(this.contract_date,'YYYY-MM-DD').format('LL');
                 this.ins_per_start1 = moment(this.ins_per_start,'YYYY-MM-DD').format('LL');
                 this.ins_per_end1 = moment(this.ins_per_end,'YYYY-MM-DD').format('LL');
+                this.appl_date1 = moment(this.appl_date,'YYYY-MM-DD').format('LL');
                 this.term_date1 = moment(this.term_date,'YYYY-MM-DD').format('LL');
             },
             prepare: function(){
@@ -216,15 +238,19 @@
                 this.ref_amount1 = this.correct(this.ref_amount);
             },
             insPerCalc: function (){
+                this.insPerDiff();
+
                 if (this.term_date === 0) return 0;
                 var diff = this.ins_per_diff,
                     exp = moment.duration(
                         moment(this.term_date) - moment(this.ins_per_start)
                     ).asDays() + 1,
-                    rem = this.ins_per_diff - exp;
+                    rem = (this.ins_per_diff - exp);
                 this.exp_ins_period = exp;
                 this.rem_ins_period = rem;
+
                 this.typeDate();
+
             },
             insPerDiff: function (){
                 if (this.ins_per_end === 0)return 0;
@@ -242,7 +268,6 @@
                     base_prem_a_day = (base_prem / this.ins_per_diff),
                     used_ins_prem = (base_prem_a_day * this.exp_ins_period),
                     unused_ins_prem = (base_prem_a_day * this.rem_ins_period);
-
                 this.expenses_amount = (expenses_amount).toFixed(2);
                 this.base_prem = (base_prem).toFixed(2);
                 this.base_prem_a_day = (base_prem_a_day).toFixed(2);
@@ -253,6 +278,7 @@
             getTmp: function (){
                 var cCode = this.contract.split('/')[1];
                 axios.get('ajaxcontract/'+cCode).then((response) => {
+
                     this.tmpl = response.data.tmp_prop;
                     this.contract_type = response.data.name;
                 })
@@ -262,4 +288,89 @@
             }
         }
     })
+
+
+    function ntw(num){
+        if(Number.isInteger(+num)){
+            num = [num, '00'];
+        } else if ( +num === Number(+num) && +num % 1 !== 0) {
+            num = ('' + num).split('.');
+        }
+
+        var ru = {
+            once: ['', ['один', 'одна'], ['два', 'две'], 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'],
+            tens: ['', '', 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяноста'],
+            hundereds: ['', 'сто', 'двести', 'триста', 'четыреста', 'пятьсот', 'шесьтсот', 'семьсот', 'восемьсот', 'девятьсот'],
+            scales: ['тысяч', 'миллион', 'миллиард', 'триллион', 'квадриллион', 'квинтиллион', 'секстиллион', 'септиллион', 'октиллион', 'нониллион', 'дециллион', 'ундециллион', 'дуодециллион'],
+            get: function(word, scale, scaling, num){
+                return this.correct(word, scale, scaling, num);
+            },
+            correct: function(word, scale, scaling, num){
+                if(scaling == 2 && scale == 'тысяч'){
+
+                    switch(((word instanceof Array)?word[0]:word)){
+                        case 'один': return word[1] + ' ' + scale + 'а';
+                        case 'два': return word[1] + ' ' + scale + 'и';
+                        case 'три': return word + ' ' + scale + 'и';
+                        case 'четыре': return word + ' ' + scale + 'и';
+                        default: return word + ' ' + scale;
+                    }
+                } else if (scaling == 2 && scale) {
+                    switch(((word instanceof Array)?word[0]:word)){
+                        case 'один': return word[0] + ' ' + scale + '';
+                        case 'два': return word[0] + ' ' + scale + 'а';
+                        case 'три': return word + ' ' + scale + 'а';
+                        case 'четыре': return word + ' ' + scale + 'а';
+                        default: return word + ' ' + scale + 'ов';
+                    }
+                } else {
+                    return (word instanceof Array) ? word[0] : word;
+                }
+            },
+            zero: 'ноль'
+        };
+        return '(' + generate( num[0], ru) + ' сум ' + num[1] + ' тийин)';
+
+        function separate(num){
+            var nparts = num.toString().split('.');
+            nparts[0] = nparts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            return nparts.join('.');
+        }
+
+        function generate(num, language){
+            let readable = separate(num),
+                parts = readable.split('.'),
+                chunks = parts[0].split(',').reverse();
+
+            let finalNumber = [];
+            if(num == 0){
+                return language.zero;
+            } else if ( chunks.length == 1 ){
+                finalNumber[0] = getHundereds(chunks[0], language, false);
+            } else {
+                for(let i = 0; i < chunks.length; i++){
+                    finalNumber[i] = getHundereds(chunks[i], language, language.scales[i-1]);
+                }
+            }
+            return (finalNumber.reverse().join(' '));
+        }
+
+        function getHundereds(integer, lang, scale){
+            var intarr = integer.toString().split('');
+            switch(intarr.length){
+                case 2: intarr.unshift('0');	break;
+                case 1: intarr.unshift('0', '0');	break;
+            }
+
+            var hun = (integer > 99) ? lang.get(lang.hundereds[intarr[0]], scale, 0, integer) : '',
+                ten = (integer > 9) ? lang.get(lang.tens[intarr[1]], scale, 1, integer) : '',
+                one = (integer > 0) ? lang.get(lang.once[intarr[2]], scale, 2, integer) : '';
+            if ( intarr[1] == 1 ){
+                ten = lang.get(lang.once[intarr[1]+intarr[2]], scale, 2, integer);
+                one = '';
+            }
+            return hun + ' ' + ten + ' ' + one;
+        }
+
+    }
 </script>
